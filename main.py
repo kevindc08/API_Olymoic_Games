@@ -40,6 +40,9 @@ def medals():
         dic[medal.index[i]] = int(medal.values[i])
     return dic
 
+# %%
+medals()
+
 # %% [markdown]
 # Funcion Medals_country(pais)
 
@@ -54,7 +57,7 @@ def medal_country(Pais:str):
     return dic
 
 # %%
-#medal_country('Mexico')
+medal_country('Mexico')
 
 # %% [markdown]
 # Funcion Medals_year(año)
@@ -69,9 +72,6 @@ def medal_year(year:int):
         dic[medallas.index[i]]=int(medallas.values[i])
     return dic
 
-# %%
-#medal_year(1968)
-
 # %% [markdown]
 # funcion athletes(nombres)
 
@@ -81,7 +81,7 @@ def Atletas(nombre: str):
     filtro = df[df["Name"] == nombre]
     dic={}
     if filtro.empty:
-        return{'Error':'Revise los datos ingreados'}
+        return{'Error':'Revise los datos ingresados'}
     dic['Name']=nombre
     dic['Sexo']=filtro['Sex'].values[0]
     dic['Edad']=list(filtro['Age'].value_counts().index)
@@ -96,6 +96,6 @@ def Atletas(nombre: str):
 
 
 # %%
-#Atletas("Heikki Ilmari Savolainen")
+Atletas("Heikki Ilmari Savolainen")
 
 
