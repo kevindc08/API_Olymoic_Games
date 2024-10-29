@@ -47,19 +47,19 @@ medals()
 # Funcion Medals_country(pais)
 
 # %%
-@app.get("/medal_country/{pais}")
+@app.get("/medal_country/{Pais}")
 def medal_country(Pais:str):
     filtro = df[df['Team']==Pais]
     medallas = filtro['Medal'].value_counts()
     dic={}
     if filtro.empty:
-        return{'Error':'El pais no existe o esta mal escrito'}
+        return{'Error':f"El pais {Pais} no existe o esta mal escrito"}
     for i in range(len(medallas)):
         dic[medallas.index[i]]=int(medallas.values[i])
     return dic
 
 # %%
-medal_country('Mexico')
+medal_country('México')
 
 # %% [markdown]
 # Funcion Medals_year(año)
@@ -71,13 +71,13 @@ def medal_year(year:int):
     medallas = filtro['Medal'].value_counts()
     dic={}
     if filtro.empty:
-        return{'Error':'No hubo juegos olimpicos en ese año'}
+        return{'Error':f'No hubo juegos olimpicos en el año {year}'}
     for i in range(len(medallas)):
         dic[medallas.index[i]]=int(medallas.values[i])
     return dic
 
 # %%
-medal_year(2000)
+medal_year(2001)
 
 # %% [markdown]
 # funcion athletes(nombres)
