@@ -52,6 +52,8 @@ def medal_country(Pais:str):
     filtro = df[df['Team']==Pais]
     medallas = filtro['Medal'].value_counts()
     dic={}
+    if filtro.empty:
+        return{'Error':'El pais no existe o esta mal escrito'}
     for i in range(len(medallas)):
         dic[medallas.index[i]]=int(medallas.values[i])
     return dic
@@ -68,9 +70,14 @@ def medal_year(year:int):
     filtro = df[df['Year']==year]
     medallas = filtro['Medal'].value_counts()
     dic={}
+    if filtro.empty:
+        return{'Error':'No hubo juegos olimpicos en ese año'}
     for i in range(len(medallas)):
         dic[medallas.index[i]]=int(medallas.values[i])
     return dic
+
+# %%
+medal_year(2000)
 
 # %% [markdown]
 # funcion athletes(nombres)
